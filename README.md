@@ -14,7 +14,7 @@ For more info about the DFU process, see: [Resources](#resources)
 Remove react-native-nordic-dfu from your package.json and yarn.lock files and run:
 
 ```
-yard add https://github.com/DreamOnward/react-native-nordic-dfu
+yarn add https://github.com/DreamOnward/react-native-nordic-dfu
 ```
 
 or
