@@ -11,10 +11,10 @@ For more info about the DFU process, see: [Resources](#resources)
 
 ## Installation
 
-Install and link the NPM package per usual with
+Remove react-native-nordic-dfu from your package.json and yarn.lock files and run:
 
-```bash
-npm install --save react-native-nordic-dfu
+```
+yard add https://github.com/DreamOnward/react-native-nordic-dfu
 ```
 
 or
