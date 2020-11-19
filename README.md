@@ -1,8 +1,12 @@
 # react-native-nordic-dfu 
 
-## This fork contains add two timeouts to fix firmware uploads for iOS 13.
-## It is the same fix as [this other fork](https://github.com/Jurpp/react-native-nordic-dfu) but on a later version of the trunk.
+## Fork changes
 
+This fork:
+* adds two timeouts to fix firmware uploads for iOS 13.
+ It is the same fix as [this other fork](https://github.com/Jurpp/react-native-nordic-dfu) but on a later version of the trunk.
+* Upgraded library to no.nordicsemi.android:dfu:1.11.0.
+* Enabled 3 [retries](https://github.com/NordicSemiconductor/Android-DFU-Library#retrying).
 
 This library allows you to do a Device Firmware Update (DFU) of your nrf51 or
 nrf52 chip from Nordic Semiconductor. It works for both iOS and Android.
