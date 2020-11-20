@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import com.facebook.react.bridge.*;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.modules.core.RCTNativeAppEventEmitter;
 import no.nordicsemi.android.dfu.*;
 
@@ -30,11 +31,21 @@ public class RNNordicDfuModule extends ReactContextBaseJavaModule implements Lif
     }
 
     @ReactMethod
-    public void startDFU(String address, String name, String filePath, Promise promise) {
+    public void startDFU(String address, String name, String filePath, ReadableMap options, Promise promise) {
         mPromise = promise;
         final DfuServiceInitiator starter = new DfuServiceInitiator(address)
-                .setKeepBond(false)
-                .setNumberOfRetries(3);
+                .setKeepBond(false);
+
+        if (options.hasKey("retries")) {
+          int retries = options.getInt("retries");
+          starter.setNumberOfRetries(retries);
+        }
+
+        if (options.hasKey("maxMtu")) {
+          int mtu = options.getInt("maxMtu");
+          starter.setMtu(mtu);
+        }
+
         if (name != null) {
             starter.setDeviceName(name);
         }
